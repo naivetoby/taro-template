@@ -17,19 +17,35 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "resolveJsonModule": true,
-    "typeRoots": ["node_modules/@types"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "paths": {
       // TS5090 leading './'
-      "@/*": ["./src/*"],
-      "~/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "~/*": [
+        "./src/*"
+      ]
     },
     "types": [
       // "global.d.ts",
       // "../types/response.d.ts"
     ]
   },
-  "include": ["./src", "./types", "./config", "./types/response.d.ts"],
-  "exclude": ["node_modules", "dist"],
+  "include": [
+    "./src",
+    "./types",
+    "./config",
+    "./types/response.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
   "compileOnSave": false,
-  "files": ["./types/response.d.ts"]
+  "files": [
+    "./types/response.d.ts"
+  ]
 }
