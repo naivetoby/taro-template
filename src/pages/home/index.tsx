@@ -6,12 +6,10 @@
  * @description: index
  */
 import { useEffect } from 'react';
-import { useSetState } from 'ahooks';
 import { View, Text, Button } from '@tarojs/components';
 import Taro, { useDidShow, useLoad } from '@tarojs/taro';
 import { PAGE, MAIN_PAGE, SUB_PAGE, TABBAR_PAGE } from '@/constants/PAGE';
 import { useAppStore } from '@/store';
-import { Button as NutButton, Popup } from '@nutui/nutui-react-taro';
 
 import { GetTest, GetTest2, GetTest3, GetTest4 } from '@/api/api';
 import { getSystemInfo } from '@/utils/tools';
@@ -20,10 +18,6 @@ import './index.scss';
 
 export default function Home() {
   const { token, SET_TOKEN, REMOVE_TOKEN, SET_STATE } = useAppStore((state) => state);
-
-  const [state, setState] = useSetState({
-    show: false
-  });
 
   useLoad(() => {
     console.log('Page loaded.');
@@ -54,7 +48,7 @@ export default function Home() {
 
   function handleTest(ind: number) {
     const params = { user: 'dushuai' };
-    if(ind === 1) {
+    if (ind === 1) {
       params['pwd'] = '123456';
     }
     switch (ind) {
@@ -77,9 +71,6 @@ export default function Home() {
     <View className="index">
       <Text className="title">Hello world! 2 ==== {token}</Text>
       <Text>{process.env.TARO_ENV}</Text>
-      <NutButton type="primary" onClick={() => setState({ show: true })}>
-        狗东组件库
-      </NutButton>
       <Button type="primary" onClick={() => handleTest(0)}>
         http
       </Button>
@@ -125,11 +116,6 @@ export default function Home() {
         </button>
         <button>2</button>
       </div>
-
-      <Popup visible={state.show} closeOnOverlayClick={false} position="bottom">
-        狗东弹出层
-        <div onClick={() => setState({ show: false })}>关闭</div>
-      </Popup>
     </View>
   );
 }
